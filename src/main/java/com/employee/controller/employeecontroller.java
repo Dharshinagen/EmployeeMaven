@@ -1,6 +1,6 @@
 package com.employee.controller;
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,10 +13,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+ 
 import com.employee.handler.EmployeeHandler;
+import com.employee.model.EmployeeDetails;
 
 @Controller
 public class employeecontroller {
+	
+	@Autowired
+	private EmployeeHandler empHandler;
 	
 	@RequestMapping(value = "/")
 	public ModelAndView handler(HttpServletResponse response) throws IOException {
@@ -39,6 +44,12 @@ public class employeecontroller {
 	    			 return new ModelAndView("employee");
 	    		}
 
+	}
+	@RequestMapping(value = "/EmployeeList")
+	public String getList(ModelMap empList) {
+		List<EmployeeDetails> list = empHandler.listDetails();
+		empList.addAttribute("employeeList", list);
+		return ("employeeList");
 	}
 
 }

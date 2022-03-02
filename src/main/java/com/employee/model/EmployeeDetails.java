@@ -1,6 +1,7 @@
 package com.employee.model;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 public class EmployeeDetails {
@@ -118,6 +119,7 @@ public class EmployeeDetails {
 					+ email + ", address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state="
 					+ state + ", dateOfBirth=" + dateOfBirth + ", joiningDate=" + joiningDate + "]";
 		}
+		 
 
 
 }
